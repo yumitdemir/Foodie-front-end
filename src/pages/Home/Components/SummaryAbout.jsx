@@ -15,17 +15,17 @@ function SummaryAbout(props) {
                     <img className={"rounded w-full h-80 sm:hidden self-center mt-4"}
                          src="https://picsum.photos/1000" alt=""/>
                     <button
-                        className={"mt-10 p-2 bg-green-500 text-white rounded w-2/5 hidden sm:block self-end"}>Explore
+                        className={"mt-10 p-2 bg-green-500 text-white rounded w-2/5 hidden sm:block self-end me-3"}>Explore
                         More
                     </button>
                 </div>
                 <div className={""}>
-                    <img className={" hidden sm:block rounded md:w-3/5"} src="https://picsum.photos/1000" alt=""/>
+                    <img className={" hidden sm:block rounded md:w-4/5 lg:w-3/5"} src="https://picsum.photos/1000" alt=""/>
                 </div>
             </div>
             <div className={"grid grid-cols-2 sm:gap-3 border-e-4 border-green-400"}>
                 <div className={"flex justify-end items-center pe-3.5"}>
-                    <img className={" hidden sm:block rounded md:w-3/5 shadow-xl"} src="https://picsum.photos/1000"
+                    <img className={" hidden sm:block rounded md:w-4/5 lg:w-3/5 shadow-xl"} src="https://picsum.photos/1000"
                          alt=""/>
                 </div>
                 <div className={"col-span-2 sm:col-span-1 flex flex-col  "}>
