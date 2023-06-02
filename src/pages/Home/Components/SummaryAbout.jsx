@@ -5,34 +5,37 @@ function SummaryAbout(props) {
         <>
             <div className={"grid  grid-cols-2 items-center gap-3  border-green-400"}>
                 <div className={"col-span-2 sm:col-span-1 flex flex-col "}>
-                    <h2 className={"mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black"}>
+                    <h2 className={"text-title-black mb-4 text-4xl font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl "}>
                         What are we about
                     </h2>
-                    <p className={"text-gray-600"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    <p className={"text-paragraph-black"}>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Asperiores eveniet expedita maiores
                         nam necessitatibus nostrum, optio quaerat quia reprehenderit sapiente?
                     </p>
-                    <img className={"rounded w-full h-80 sm:hidden self-center mt-4"}
+                    <img className={"shadow-2xl rounded w-full h-80 sm:hidden self-center mt-4"}
                          src="https://picsum.photos/1000" alt=""/>
                     <button
-                        className={"mt-10 p-2 bg-green-500 text-white rounded w-2/5 hidden sm:block self-end me-3"}>Explore
+                        className={"mt-10 p-2 bg-green-500 text-white rounded w-2/5 hidden sm:block self-end me-3 hover:bg-green-600"}>Explore
                         More
                     </button>
                 </div>
                 <div className={""}>
-                    <img className={" hidden sm:block rounded md:w-4/5 lg:w-3/5"} src="https://picsum.photos/1000" alt=""/>
+                    <img className={"shadow-lg shadow-black hidden sm:block rounded md:w-4/5 lg:w-3/5"}
+                         src="https://picsum.photos/1000" alt=""/>
                 </div>
             </div>
-            <div className={"grid grid-cols-2 sm:gap-3 border-e-4 border-green-400"}>
+            <div className={"grid grid-cols-2 sm:gap-3 md:border-e-4 border-green-400"}>
                 <div className={"flex justify-end items-center pe-3.5"}>
-                    <img className={" hidden sm:block rounded md:w-4/5 lg:w-3/5 shadow-xl"} src="https://picsum.photos/1000"
+                    <img className={"shadow-lg shadow-black hidden sm:block rounded md:w-4/5 lg:w-3/5"}
+                         src="https://picsum.photos/1000"
                          alt=""/>
                 </div>
-                <div className={"col-span-2 sm:col-span-1 flex flex-col  "}>
-                    <h2 className={"mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black"}>
+                <div className={"col-span-2 sm:col-span-1 flex flex-col"}>
+                    <h2 className={"mb-4 text-4xl text-title-black font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl "}>
                         Improve your culinary skills
                     </h2>
-                    <ul className={"text-gray-700 flex flex-col gap-1"}>
+                    <ul className={"text-paragraph-black flex flex-col gap-1"}>
                         <li className={"ps-3  border-green-500 border-s-4"}>Lorem ipsum.</li>
                         <li className={"ps-3  border-green-500 border-s-4"}>Lorem ipsum dolor.</li>
                         <li className={"ps-3  border-green-500 border-s-4"}>Lorem ipsum dolor sit amet.</li>
@@ -40,12 +43,12 @@ function SummaryAbout(props) {
                         <li className={"ps-3  border-green-500 border-s-4"}>Lorem ipsum dolor sit amet.</li>
                         <li className={"ps-3  border-green-500 border-s-4"}>Lorem ipsum dolor.</li>
                     </ul>
-                    <img className={"rounded w-full h-80 sm:hidden self-center mt-4"}
+                    <img className={"shadow-lg shadow-black rounded w-full h-80 sm:hidden self-center mt-4"}
                          src="https://picsum.photos/750" alt=""/>
 
                 </div>
             </div>
-            <div className={"mt-15"}>
+            <div className={"mt-15 shadow-2xl"}>
                 <div className={"flex flex-col bg-green-500 font-bold text-lg p-10 rounded text-white"}>
                     <p>“To become a doctor, you need to go to medical school. To become a lawyer, you need a J.D.
                         But to become a chef, you just put your time in at restaurants and learn by doing.” </p>
