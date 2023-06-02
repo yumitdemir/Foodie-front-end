@@ -7,7 +7,7 @@ import PageContainer from "../Container/PageContainer.jsx";
 function Nav(props) {
     return (
 
-        <nav className={"bg-white  py-3  border-b-2 border-gray-300"}>
+        <nav className={"bg-white px-2 sm:px-0  py-3  border-b-2 border-gray-300"}>
             <PageContainer>
                 <div className={"grid grid-cols-4"}>
                     <a className={"text-green-500 col-start-1 col-end-3 font-extrabold tracking-tight text-2xl  md:text-3xl  "}

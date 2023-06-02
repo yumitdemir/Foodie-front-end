@@ -7,9 +7,11 @@ import SearchRecipie from "./Components/SearchRecipie.jsx";
 function Index(props) {
     return (
         <PageContainer>
-            <div className={"flex flex-col mt-5 sm:gap-16 "}>
+            <div className={"flex flex-col mt-5 sm:gap-16 px-5 sm:p-0 "}>
                 <SearchRecipie/>
                 <SummaryAbout/>
+                {/*<PopularRecipies/>*/}
+                {/*<TopChefs/>*/}
             </div>
         </PageContainer>
     );
