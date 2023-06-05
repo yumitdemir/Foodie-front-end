@@ -20,8 +20,8 @@ function SearchRecipie(props) {
     let initialSearchState = {IgnorePantry: true, OrderBy: "1", Input: ""};
     const [searchState, searchDispatch] = useReducer(searchReducer, initialSearchState);
     return (
-        <div className={"flex flex-col justify-center items-center h-screen"}>
-            <div className={"flex-col flex w-full sm:mt-32"}>
+        <div className={"flex flex-col  mb-10 mt-20 w-full "}>
+            <div>
                 <TitleAndOptions searchDispatch={searchDispatch} searchState={searchState}/>
                 <SearchInputField searchDispatch={searchDispatch} searchState={searchState}/>
             </div>

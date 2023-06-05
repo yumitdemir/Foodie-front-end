@@ -2,14 +2,14 @@ import React from 'react';
 
 function TitleAndOptions({searchState, searchDispatch}) {
     return (
-        <div className={"grid grid-cols-1 place-items-start sm:grid-cols-5  "}>
+        <div className={"grid grid-cols-1 place-items-start md:grid-cols-5 px-5 "}>
 
-            <p className={"col-span-3 text-2xl  lg:text-4xl font-extrabold text-title-black  sm:ps-4"}
+            <p className={"col-span-3 text-lg  sm:text-2xl  lg:text-4xl font-extrabold text-title-black   "}
             >What can I make with <span
                 className={"text-green-500"}>...</span></p>
 
             <div
-                className={"col-span-2 text-xs lg:text-lg flex  pb-2 flex-row md:flex-col lg:flex-row gap-2 lg:gap-5 items-start sm:items-end "}>
+                className={"w-full lg:justify-end col-span-2 text-xs lg:text-lg flex  pb-2 flex-row md:flex-col lg:flex-row gap-2 lg:gap-5  sm:items-end "}>
 
 
                 <select name="orderby" value={searchState.OrderBy} onChange={(e) => {

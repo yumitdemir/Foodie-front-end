@@ -10,7 +10,7 @@ function Index(props) {
 
     return (
         <PageContainer>
-            <div className={"flex flex-col mt-5 sm:gap-16 px-5 sm:p-0"}>
+            <div className={"flex flex-col mt-2 sm:gap-16 px-5 sm:p-0"}>
                 <SearchRecipie/>
                 <SummaryAbout/>
             </div>
