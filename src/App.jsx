@@ -14,13 +14,15 @@ function App(props) {
 
 
         <BrowserRouter>
-            <Nav />
-            <Routes>
-                <Route path="/" element={<Navigate to="/Home" replace />} />
-                <Route path="/Home" element={<Home />} />
-                <Route path="/search/:pantry/:order/:input" element={<SearchList />} />
-            </Routes>
-            <Footer />
+            <QueryClientProvider client={queryClient}>
+                <Nav/>
+                <Routes>
+                    <Route path="/" element={<Navigate to="/Home" replace/>}/>
+                    <Route path="/Home" element={<Home/>}/>
+                    <Route path="/search/:pantry/:order/:input" element={<SearchList/>}/>
+                </Routes>
+                <Footer/>
+            </QueryClientProvider>
         </BrowserRouter>
 
 
