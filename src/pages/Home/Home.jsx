@@ -6,7 +6,7 @@ import SearchRecipie from "./Components/SearchRecipie.jsx";
 
 
 
-function Index(props) {
+function Home(props) {
 
     return (
         <PageContainer>
@@ -18,4 +18,4 @@ function Index(props) {
     );
 }
 
-export default Index;
+export default Home;
