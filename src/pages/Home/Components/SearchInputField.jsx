@@ -1,7 +1,8 @@
 import React from 'react';
 import {BiSearchAlt} from "react-icons/bi";
+import {Link} from "react-router-dom";
 
-function SearchInputField({searchDispatch,searchState}) {
+function SearchInputField({searchDispatch, searchState}) {
 
     return (
         <div className={"flex flex-row shadow-lg shadow-green-100 rounded-3xl border-2  border-green-600"}>
@@ -14,9 +15,18 @@ function SearchInputField({searchDispatch,searchState}) {
                 }}
                 value={searchState.Input}
             />
-            <button
-                className={"rounded-e-2xl bg-green-600 flex items-center  px-8 font-bold text-white hover:bg-green-700"}>
-                <BiSearchAlt className={"text-3xl"}/></button>
+            {searchState.Input == "" ?
+                <a
+                    className={"rounded-e-2xl bg-green-600 flex items-center  px-8 font-bold text-white hover:bg-green-700"}>
+                    <BiSearchAlt className={"text-3xl"}/>
+                </a>
+                :
+                <Link
+                    to={`/${searchState.IgnorePantry}/${searchState.OrderBy}/${searchState.Input}`}
+                    className={"rounded-e-2xl bg-green-600 flex items-center  px-8 font-bold text-white hover:bg-green-700"}>
+                    <BiSearchAlt className={"text-3xl"}/>
+                </Link>}
+
         </div>
     );
 }
