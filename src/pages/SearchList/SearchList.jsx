@@ -6,7 +6,7 @@ import {useQuery} from "@tanstack/react-query";
 async function fetchRecipes(pantry, order, input) {
     const apiKey = '49a32b520f314d1294660ea61e7ff18e';
     input = input.split(" ").join(",+");
-    const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${input}&number=${5}&apiKey=${apiKey}`;
+    // const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${input}&number=${5}&apiKey=${apiKey}`;
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error('Failed to fetch recipes');
