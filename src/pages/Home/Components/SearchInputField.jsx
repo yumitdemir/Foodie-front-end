@@ -22,7 +22,7 @@ function SearchInputField({searchDispatch, searchState}) {
                 </a>
                 :
                 <Link
-                    to={`/${searchState.IgnorePantry}/${searchState.OrderBy}/${searchState.Input}`}
+                    to={`/search/${searchState.IgnorePantry}/${searchState.OrderBy}/${searchState.Input}`}
                     className={"rounded-e-2xl bg-green-600 flex items-center  px-8 font-bold text-white hover:bg-green-700"}>
                     <BiSearchAlt className={"text-3xl"}/>
                 </Link>}
