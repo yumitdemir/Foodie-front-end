@@ -26,7 +26,7 @@ function SearchList(props) {
     )
 
     return (
-        <div className={"grid grid-cols-1 md:grid-cols-[1.5fr,5fr] h-50 mt-5 mx-10 w-full break-words" }>
+        <div className={"grid grid-cols-1 md:grid-cols-[1.5fr,5fr] h-50 mt-5  md:mx-10 w-full break-words" }>
             <SearchBar inputArray={inputArray}/>
             <RecipeList/>
         </div>

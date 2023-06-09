@@ -4,8 +4,8 @@ import {AiOutlineClose, AiOutlineDown, AiOutlineUp} from "react-icons/ai";
 function SelectedIngredients({inputArray}) {
     return (
         <div className="w-full">
-            <p className="text-start text-xl font-bold text-white "><span
-                className={"flex justify-center items-center"}> Selected ingredients  <AiOutlineDown/> <AiOutlineUp/></span>
+            <p className="text-start "><span
+                className={"flex justify-start items-center"}>Selected ingredients <AiOutlineDown/> <AiOutlineUp/></span>
             </p>
             <div className="w-full flex flex-row flex-wrap gap-1 ">
                 {inputArray.map((ingredient,index) =>

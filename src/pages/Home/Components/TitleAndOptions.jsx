@@ -16,20 +16,20 @@ function TitleAndOptions({searchState, searchDispatch}) {
 
                 <OrderRecipes name="orderby" value={searchState.OrderBy} onChange={(e) => {
                     searchDispatch({type: "ORDER_BY", payload: e.target.value})
-                }}></OrderRecipes>
+                }}>
+                </OrderRecipes>
 
 
-                <div className={"lg:text-lg flex flex-row gap-1 items-center justify-end  "}>
+                <PantryInput className={"h-2 w-2 lg:h-5 lg:w-5 checked:accent-green-600"}
+                             containerClassName={"lg:text-lg items-center justify-end "}
+                             defaultChecked={"true"}
+                             value={searchState.IgnorePantry}
+                             onChange={(e) => {
+                                 searchDispatch({type: "IGNORE_PANTRY", payload: e.target.checked})
+                             }}
+                />
 
-                    <PantryInput className={"h-2 w-2 lg:h-5 lg:w-5 checked:accent-green-600"}
-                                 defaultChecked={"true"}
-                                 value={searchState.IgnorePantry}
-                                 onChange={(e) => {
-                                     searchDispatch({type: "IGNORE_PANTRY", payload: e.target.checked})
-                                 }}
-                    />
 
-                </div>
             </div>
         </div>
     );

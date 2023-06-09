@@ -1,15 +1,15 @@
 import React from 'react';
 
-function PantryInput({defaultChecked,value,onChange,className}) {
+function PantryInput({defaultChecked,value,onChange,className,containerClassName}) {
     return (
-        <>
+        <div className={`flex flex-row gap-1  ${containerClassName}`}>
             <input name="pantry" type="checkbox" className={className}
                    defaultChecked={defaultChecked}
                    value={value}
                    onChange={onChange}
             />
             <label htmlFor="pantry" className={" text-xs"}>Ignore typical pantry</label>
-        </>
+        </div>
     );
 }
 
