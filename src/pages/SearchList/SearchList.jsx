@@ -7,7 +7,7 @@ import RecipeList from "./components/RecipeList.jsx";
 
 async function fetchRecipes(pantry, order, input) {
     const apiKey = '49a32b520f314d1294660ea61e7ff18e';
-    input = input.split(" ").join(",+");
+    let inputArray = input.split(" ").join(",+");
     const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${input}&number=${5}&apiKey=${apiKey}`;
     const response = await fetch(url);
     if (!response.ok) {
@@ -18,18 +18,20 @@ async function fetchRecipes(pantry, order, input) {
 
 function SearchList(props) {
     const {pantry, order, input} = useParams();
+    let inputArray = input.split(" ");
 
     const recipes = useQuery(
         [`recipies`],
         () => fetchRecipes(pantry, order, input)
     )
-    console.log(recipes.data)
+
     return (
-        <div className={"grid grid-cols-1 md:grid-cols-[1fr,5fr] h-50 mt-5"}>
-            <SearchBar/>
+        <div className={"grid grid-cols-1 md:grid-cols-[1.5fr,5fr] h-50 mt-5 mx-10 w-full break-words" }>
+            <SearchBar inputArray={inputArray}/>
             <RecipeList/>
         </div>
     );
 }
 
 export default SearchList;
+
