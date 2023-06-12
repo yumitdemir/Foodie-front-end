@@ -1,8 +1,13 @@
 import React from 'react';
+import RecipeItem from "./RecipeItem.jsx";
+import recipieslist from "/public/response.json"
 
 function RecipeList(props) {
     return (
-        <div className={"flex flex-col w-full items-center"}>
+        <div className={"flex flex-col w-full items-center bg-gray-100 py-8 px-6 rounded-xl"}>
+            {recipieslist.map( (item,index) =>{
+                return  <RecipeItem key={item+index} recipe={item} />
+            })}
 
         </div>
     );
