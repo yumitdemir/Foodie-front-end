@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar.jsx";
 import RecipeList from "./components/RecipeList.jsx";
 import {Container} from "postcss";
 import PageContainer from "../../components/Container/PageContainer.jsx";
+import LoadingSpinner from "../../components/loadingspinner/LoadingSpinner.jsx";
 
 
 async function fetchRecipes(pantry, order, input) {
@@ -22,19 +23,22 @@ function SearchList(props) {
     const {pantry, order, input} = useParams();
     let inputArray = input.split(" ");
 
-    const recipes = useQuery(
-        [`recipies`],
-        () => fetchRecipes(pantry, order, input)
-    )
+    const recipes = useQuery([`recipies`], () => fetchRecipes(pantry, order, input))
 
-    return (
-        <PageContainer>
-            <div className={"grid grid-cols-1 lg:grid-cols-[1.5fr,5fr] h-50 mt-5 w-full break-words"}>
-                <SearchBar inputArray={inputArray} order={order} input={input} pantry={pantry}/>
-                <RecipeList/>
-            </div>
-        </PageContainer>
-    );
+    return (<PageContainer>
+        <div className={"grid grid-cols-1 lg:grid-cols-[1.5fr,5fr] h-50 mt-5 w-full break-words"}>
+            <SearchBar inputArray={inputArray} order={order} input={input} pantry={pantry}/>
+            {recipes.isLoading ?
+                <div className={"flex justify-center items-center"}>
+                    <LoadingSpinner width={52} height={52} boldness={8} />
+                </div>
+
+             :<RecipeList recipes={recipes}/>}
+
+
+
+        </div>
+    </PageContainer>);
 }
 
 export default SearchList;
