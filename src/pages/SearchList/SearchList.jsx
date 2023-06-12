@@ -24,18 +24,18 @@ function SearchList(props) {
     let inputArray = input.split(" ");
 
     const recipes = useQuery([`recipies`], () => fetchRecipes(pantry, order, input))
-
+    console.log(recipes.isLoading)
     return (<PageContainer>
+
+
         <div className={"grid grid-cols-1 lg:grid-cols-[1.5fr,5fr] h-50 mt-5 w-full break-words"}>
             <SearchBar inputArray={inputArray} order={order} input={input} pantry={pantry}/>
-            {recipes.isLoading ?
+            {recipes.isLoading &&
                 <div className={"flex justify-center items-center"}>
                     <LoadingSpinner width={52} height={52} boldness={8} />
-                </div>
-
-             :<RecipeList recipes={recipes}/>}
-
-
+                </div>}
+            {recipes.isSuccess && <RecipeList recipes={recipes}/>}
+            {recipes.error != null? <p className={"text-center text-3xl text-red-600"}>Reached to the api call limitation. Please check the website tomorrow.</p>:""}
 
         </div>
     </PageContainer>);
