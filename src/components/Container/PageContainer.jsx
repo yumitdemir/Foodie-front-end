@@ -2,7 +2,7 @@ import React from 'react';
 
 function PageContainer(props) {
     return (
-        <div className={"mx-auto xl:px-40 container"}>
+        <div className={"mx-auto container"}>
             {props.children}
         </div>
     );
