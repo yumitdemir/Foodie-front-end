@@ -3,8 +3,13 @@ import {useQuery} from "@tanstack/react-query";
 import {useParams} from "react-router-dom";
 
 async function fetchInstructions(id){
-
-    const url = `https://api.spoonacular.com/recipes/324694/analyzedInstructions?apiKey=49a32b520f314d1294660ea61e7ff18e`
+    const apiKey = import.meta.env.VITE_API_KEY;
+    const url = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${apiKey}`
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error('Failed to fetch recipes');
+    }
+    return response.json();
 }
 
 
@@ -22,7 +27,8 @@ async function fetchDetails(id) {
 function Details(props) {
     const {id} = useParams();
     const details = useQuery([`details`], () => fetchDetails(id))
-    console.log(details.data)
+    const instructions = useQuery([`instructions`], () => fetchInstructions(id))
+
     return (
         <div>
 
