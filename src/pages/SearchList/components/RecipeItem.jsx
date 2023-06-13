@@ -2,16 +2,18 @@ import React from 'react';
 import response from "/public/response.json"
 import {CiCircleChevDown} from "react-icons/ci";
 import {useNavigate} from "react-router-dom";
+import {useQuery} from "@tanstack/react-query";
 
 const clickHandler = (navigate,id) => {
-    navigate("/details/id")
+    navigate(`/details/${id}`)
 };
 
 function RecipeItem({recipe}) {
     const navigate = useNavigate();
+
     return (
         <div onClick={() => {
-            clickHandler(navigate,)
+            clickHandler(navigate,recipe.id)
         }}
             className={"w-full flex flex-col  px-8 py-6 rounded-lg  hover:bg-green-400 hover:bg-opacity-20 cursor-pointer shadow-xl shadow-green-100 "}>
             <div className={"flex justify-between items-center  mb-6"}>
