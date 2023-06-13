@@ -24,7 +24,6 @@ function SearchList(props) {
     let inputArray = input.split(" ");
 
     const recipes = useQuery([`recipies`], () => fetchRecipes(pantry, order, input))
-    console.log(recipes.isLoading)
     return (<PageContainer>
 
 
