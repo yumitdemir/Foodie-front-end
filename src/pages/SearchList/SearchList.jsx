@@ -34,7 +34,7 @@ function SearchList(props) {
                 <div className={"flex justify-center items-center"}>
                     <LoadingSpinner width={52} height={52} boldness={8} />
                 </div>}
-            {recipes.isSuccess && <RecipeList recipes={recipes}/>}
+            {recipes.isSuccess && <RecipeList recipes={recipes.data}/>}
             {recipes.error != null? <p className={"text-center text-3xl text-red-600"}>Reached to the api call limitation. Please check the website tomorrow.</p>:""}
 
         </div>
