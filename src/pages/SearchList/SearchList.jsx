@@ -8,8 +8,11 @@ import PageContainer from "../../components/Container/PageContainer.jsx";
 import LoadingSpinner from "../../components/loadingspinner/LoadingSpinner.jsx";
 
 
+
+
 async function fetchRecipes(pantry, order, input) {
-    const apiKey = '49a32b520f314d1294660ea61e7ff18e';
+    const apiKey = import.meta.env.VITE_API_KEY;
+    console.log(apiKey)
     let inputArray = input.split(" ").join(",+");
     const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${input}&number=${5}&apiKey=${apiKey}`;
     const response = await fetch(url);
