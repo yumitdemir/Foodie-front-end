@@ -5,6 +5,7 @@ import Footer from "./components/footer/Footer.jsx";
 import {Routes, Route, createBrowserRouter, Navigate, RouterProvider, BrowserRouter, Router} from "react-router-dom";
 import SearchList from "./pages/SearchList/SearchList.jsx";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import Details from "./pages/Details/Details.jsx";
 
 function App(props) {
 
@@ -20,6 +21,7 @@ function App(props) {
                     <Route path="/" element={<Navigate to="/Home" replace/>}/>
                     <Route path="/Home" element={<Home/>}/>
                     <Route path="/search/:pantry/:order/:input" element={<SearchList/>}/>
+                    <Route path="/details/:id" element={<Details/>}/>
                 </Routes>
                 <Footer/>
             </QueryClientProvider>
