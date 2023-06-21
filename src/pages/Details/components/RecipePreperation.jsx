@@ -2,7 +2,7 @@ import React from 'react';
 import RecipeIngredients from "./RecipeIngredients.jsx";
 import DetailsTitle from "./ui/DetailsTitle.jsx";
 
-function RecipeSteps(props) {
+function RecipePreperation(props) {
     return (
         <div>
             <RecipeIngredients/>
@@ -33,4 +33,4 @@ function RecipeSteps(props) {
     );
 }
 
-export default RecipeSteps;
+export default RecipePreperation;
