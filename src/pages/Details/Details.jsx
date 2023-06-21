@@ -4,10 +4,10 @@ import {useParams} from "react-router-dom";
 import {BsBookmarkPlus} from "react-icons/bs";
 import RecipeHeader from "./components/RecipeHeader.jsx";
 import RecipeDescription from "./components/RecipeDescription.jsx";
-import RecipeSteps from "./components/RecipeSteps.jsx";
+import RecipePreperation from "./components/RecipePreperation.jsx";
 import CommentSection from "./components/CommentSection.jsx";
 
-async function fetchInstructions(id){
+async function fetchInstructions(id) {
     const apiKey = import.meta.env.VITE_API_KEY;
     const url = `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${apiKey}`
     const response = await fetch(url);
@@ -40,9 +40,9 @@ function Details(props) {
         <div>
             <RecipeHeader/>
             <div className={"px-32 mt-16"}>
-            <RecipeDescription/>
-            <RecipeSteps/>
-            <CommentSection/>
+                <RecipeDescription/>
+                <RecipePreperation/>
+                <CommentSection/>
             </div>
         </div>
     );
