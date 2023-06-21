@@ -11,6 +11,9 @@ export default {
         "paragraph-black":"#262626",
       }
     },
+    fontFamily:{
+      dmSans:["DM Sans","sans-serif"]
+    }
   },
   plugins: [],
 }
