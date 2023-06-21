@@ -22,8 +22,7 @@ function Nav(props) {
                         <li>
                             <NavLink
                                 to="/Home"
-                                className={`${location.pathname === "/Home" ? "text-green-600 text-lg pointer-events-none" : "hover:text-green-500"}`}
-                                activeClassName="text-green-600 text-lg pointer-events-none"
+                                className={(navData) => (navData.isActive ? "text-green-600 text-lg pointer-events-none" : "hover:text-green-500")}
                             >
                                 Home
                             </NavLink>
@@ -32,8 +31,8 @@ function Nav(props) {
                         <li>
                             <NavLink
                                 to="/About"
-                                className={`${location.pathname === "/About" ? "text-green-600 text-lg pointer-events-none" : "hover:text-green-500"}`}
-                                activeClassName="text-green-600 text-lg pointer-events-none"
+                                className={(navData) => (navData.isActive ? "text-green-600 text-lg pointer-events-none" : "hover:text-green-500")}
+
                             >
                                 About
                             </NavLink>
@@ -42,8 +41,8 @@ function Nav(props) {
                         <li>
                             <NavLink
                                 to="/Services"
-                                className={`${location.pathname === "/Services" ? "text-green-600 text-lg pointer-events-none" : "hover:text-green-500"}`}
-                                activeClassName="text-green-600 text-lg pointer-events-none"
+                                className={(navData) => (navData.isActive ? "text-green-600 text-lg pointer-events-none" : "hover:text-green-500")}
+
                             >
                                 Services
                             </NavLink>
