@@ -20,7 +20,7 @@ function App(props) {
                 <Routes>
                     <Route path="/" element={<Navigate to="/Home" replace/>}/>
                     <Route path="/Home" element={<Home/>}/>
-                    <Route path="/search/:pantry/:order/:input" element={<SearchList/>}/>
+                    <Route path="/search" element={<SearchList/>}/>
                     <Route path="/details/:id" element={<Details/>}/>
                 </Routes>
                 <Footer/>

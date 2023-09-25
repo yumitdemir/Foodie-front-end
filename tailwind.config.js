@@ -1,3 +1,5 @@
+import daisyui from "daisyui";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -15,6 +17,21 @@ export default {
       dmSans:["DM Sans","sans-serif"]
     }
   },
-  plugins: [],
+  plugins: [
+    require("daisyui"),
+  ],
+  darkMode: 'class',
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["[data-theme=light]"],
+          "primary": "#082967",
+          "primary-focus": "#194494",
+          secondary:"#e36934"
+        },
+      },
+    ],
+  },
 }
 
