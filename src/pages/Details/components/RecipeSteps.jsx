@@ -1,30 +1,16 @@
 import React from 'react';
 import DetailsTitle from "./ui/DetailsTitle.jsx";
+import {useQuery} from "@tanstack/react-query";
+import RecipeStep from "../RecipeStep.jsx";
+import {nanoid} from "nanoid";
 
 function RecipeSteps(props) {
+    const {isLoading, data: recipe} = useQuery(["getRecipe"])
+
     return (
         <div>
             <DetailsTitle title={"Steps"}/>
-            <div>
-                <p className={"text-lg font-bold "}>Step 1</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet in ipsam minima tempora temporibus ut. Nisi non provident quidem voluptatibus!</p>
-            </div>
-            <div>
-                <p className={"text-lg font-bold "}>Step 1</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet in ipsam minima tempora temporibus ut. Nisi non provident quidem voluptatibus!</p>
-            </div> <div>
-            <p className={"text-lg font-bold "}>Step 1</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet in ipsam minima tempora temporibus ut. Nisi non provident quidem voluptatibus!</p>
-        </div>
-            <div>
-                <p className={"text-lg font-bold "}>Step 1</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet in ipsam minima tempora temporibus ut. Nisi non provident quidem voluptatibus!</p>
-            </div>
-            <div>
-                <p className={"text-lg font-bold "}>Step 1</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet in ipsam minima tempora temporibus ut. Nisi non provident quidem voluptatibus!</p>
-            </div>
-
+            {recipe.steps.map(step => <RecipeStep key={nanoid()} step={step}/>)}
         </div>
     );
 }

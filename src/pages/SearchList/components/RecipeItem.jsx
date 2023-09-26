@@ -1,66 +1,83 @@
 import React from 'react';
-import response from "/public/response.json"
 import {CiCircleChevDown} from "react-icons/ci";
 import {useNavigate} from "react-router-dom";
-import {useQuery} from "@tanstack/react-query";
-
-const clickHandler = (navigate,id) => {
-    navigate(`/details/${id}`)
-};
+import IngredientCard from "../../../components/IngredientCard.jsx";
+import {nanoid} from "nanoid";
+import {useFormContext} from "react-hook-form";
 
 function RecipeItem({recipe}) {
     const navigate = useNavigate();
+    const {watch} = useFormContext();
+    let selectedIngredients = watch("ingredients");
+    let getMissingIngredientCount = () => {
+        if (recipe.ingredients.length === 0 || recipe.ingredients === null) {
+            return undefined;
+        }
+
+        return recipe.ingredients.filter(ingredient => selectedIngredients.some(i => i.value === ingredient.id)).length;
+    }
+    const onClickHandler = () => {
+
+
+        navigate(`/details/${recipe.id}`);
+    };
 
     return (
-        <div onClick={() => {
-            clickHandler(navigate,recipe.id)
-        }}
-            className={"w-full flex flex-col  px-8 py-6 rounded-lg  hover:bg-green-400 hover:bg-opacity-20 cursor-pointer shadow-xl shadow-green-100 "}>
-            <div className={"flex justify-between items-center  mb-6"}>
+        <div onClick={onClickHandler}
+             className={"bg-base-100  hover:bg-green-400 hover:bg-opacity-20 shadow-xl shadow-green-100  px-8 py-6 cursor-pointer rounded-md"}>
+            <div className={"flex justify-between items-center  "}>
                 <p className={"text-3xl font-thin  text-title-black border-s-[3px] ps-1 border-green-600 "}>{recipe.title}</p>
-                <div className={"rounded-full border border-green-600 p-4 flex flex-col justify-center items-center"}>
-                    <p className={"text-[7px]"}>ingredients</p>
-                    <p className={"text-lg"}>{recipe.usedIngredientCount}/{parseInt(recipe.usedIngredientCount)+parseInt(recipe.missedIngredientCount)}</p>
+                <div
+                    className={"rounded-full border border-green-600 p-4 flex flex-col justify-center items-center"}>
+                    <p className={"text-[7px]"}>Ingredients</p>
+                    <p className={"text-lg"}>{getMissingIngredientCount()}/{recipe.ingredients.length}</p>
                 </div>
             </div>
-            <div className={"grid  md:grid-cols-[minmax(312px,1fr)_4fr] gap-3"}>
-                <div>
-                    <img src={recipe.image} className={"rounded"} alt=""/>
-                </div>
-                <div>
+            <div
+                className="card sm:card-side max-h-[600px] ">
+                <figure><img src={recipe.thumbnailImage.filePath} className={"rounded-xl h-80 w-80"}
+                             alt=""/>
+                </figure>
+                <div className="card-body w-fit flex flex-col">
                     <div>
-                        <p className={"flex items-center font-bold text-title-black"}>Used Ingredients <span className={"ps-1"}><CiCircleChevDown/></span></p>
-                        <div className={"flex gap-1 flex-wrap overflow-y-auto h-[5rem]"}>
-                            <ul>
-                                {recipe.usedIngredients.map((ingredient,index) =>{
-                                    return <li key={ingredient+index} className={" border-s-2 ps-1 border-green-600"}>
-                                        <p>{ingredient.original}</p>
-                                    </li>
-                                }) }
-                            </ul>
+                        <p>{recipe.description}</p>
+                    </div>
 
+
+                    <div className="collapse bg-green-400  border border-base-300 collapse-arrow">
+                        <input type="checkbox" defaultChecked/>
+                        <div className="collapse-title  font-medium text-white">
+                            <p className={"flex items-center"}>Used Ingredients </p>
+                        </div>
+                        <div className="collapse-content flex cursor-auto overflow-x-auto gap-3">
+                            {recipe.ingredients.map(ingredient => {
+                                if (selectedIngredients.some(i => i.value === ingredient.id)) {
+                                    return <IngredientCard ingredient={ingredient} key={nanoid()}/>
+                                }
+                            })}
                         </div>
                     </div>
-                    <div>
-                        <p className={"flex items-center font-bold text-title-black"}>Missed Ingredients <span className={"ps-1"}><CiCircleChevDown/></span></p>
-                        <div className={"flex gap-1 overflow-x-scroll md:flex-wrap md:overflow-x-hidden"}>
-                            <ul>
-                            {recipe.missedIngredients.map((ingredient,index) =>{
-                                return <li key={ingredient+index} className={" border-s-2 ps-1 border-red-600"}>
-                                    <p>{ingredient.original}</p>
-                                </li>
-                            }) }
-                            </ul>
+                    {getMissingIngredientCount() !== 0 ?
+                        <div className="collapse bg-red-400  border border-base-300 collapse-arrow">
+                            <input type="checkbox" defaultChecked/>
+                            <div className="collapse-title font-medium text-white">
+                                <p className={"flex items-center"}>Missed Ingredients</p>
+                            </div>
+                            <div className="collapse-content cursor-auto flex overflow-x-auto gap-3 ">
+                                {recipe.ingredients.map(ingredient => {
+                                    if (selectedIngredients.some(i => i.value !== ingredient.id)) {
+                                        return <IngredientCard ingredient={ingredient} key={nanoid()}/>
+                                    }
+                                })}
+                            </div>
+                        </div> : undefined
+                    }
 
 
-
-                        </div>
-                    </div>
                 </div>
-
             </div>
         </div>
-);
+    );
 }
 
 export default RecipeItem;

@@ -1,8 +1,6 @@
 import React from 'react';
 import { FormProvider, useForm} from "react-hook-form";
 import {HiMiniMagnifyingGlass} from "react-icons/hi2";
-import api from "../../../Api.js";
-import {useQuery} from "@tanstack/react-query";
 import {createSearchParams, useNavigate} from "react-router-dom";
 import IngredientSearchSelect from "../../../components/IngredientSearchSelect.jsx";
 const customStyles = {
@@ -57,7 +55,6 @@ function SearchRecipie(props) {
     const {handleSubmit, control} = searchRecipeFrom;
     const navigate = useNavigate();
     const onSubmit = (data) => {
-        console.log(data)
         navigate({
             pathname: "/search",
             search: createSearchParams({
