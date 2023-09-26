@@ -1,5 +1,8 @@
 import React from 'react';
-import IngredientSearchSelect from "../../components/IngredientSearchSelect.jsx";
+import IngredientSearchSelect from "./IngredientSearchSelect.jsx";
+import {HiMiniMagnifyingGlass} from "react-icons/hi2";
+import SearchSortByInput from "./SearchSortByInput.jsx";
+import IgnoreTypicalPantryInput from "./IgnoreTypicalPantryInput.jsx";
 
 const customStyles = {
     control: (provided, state) => ({
@@ -49,8 +52,15 @@ const customStyles = {
 
 function SearchWidget(props) {
     return (
-        <div className={"lg:max-w-xs w-full h-fit "}>
+        <div className={"lg:max-w-xs w-full h-fit lg:sticky top-0  "}>
             <IngredientSearchSelect className={"mt-5 "} customStyles={customStyles}/>
+            <div className={"flex gap-3  mb-2 w-full"}>
+                <SearchSortByInput/>
+                <IgnoreTypicalPantryInput/>
+            </div>
+            <button
+                className={"bg-green-600  btn btn-sm  hover:text-gray-300 hover:bg-green-700 text-lg w-full flex items-center gap-3 justify-center text-white  "}
+                type="submit">Search <HiMiniMagnifyingGlass/></button>
         </div>
     );
 }

@@ -1,8 +1,11 @@
 import React from 'react';
-import { FormProvider, useForm} from "react-hook-form";
+import {FormProvider, useForm} from "react-hook-form";
 import {HiMiniMagnifyingGlass} from "react-icons/hi2";
 import {createSearchParams, useNavigate} from "react-router-dom";
 import IngredientSearchSelect from "../../../components/IngredientSearchSelect.jsx";
+import SearchSortByInput from "../../../components/SearchSortByInput.jsx";
+import IgnoreTypicalPantryInput from "../../../components/IgnoreTypicalPantryInput.jsx";
+
 const customStyles = {
     control: (provided, state) => ({
         ...provided,
@@ -55,10 +58,15 @@ function SearchRecipie(props) {
     const {handleSubmit, control} = searchRecipeFrom;
     const navigate = useNavigate();
     const onSubmit = (data) => {
+        if(data.ingredients.length === 0 ){
+            return;
+        }
         navigate({
             pathname: "/search",
             search: createSearchParams({
                 IngredientIds: data.ingredients.map(i => i.value),
+                IgnoreTypicalPantry: data.IgnoreTypicalPantry,
+                SortBy:data.SortBy
             }).toString()
         });
     }
@@ -69,12 +77,18 @@ function SearchRecipie(props) {
             >What can I make with <span className={"text-green-500"}>...</span></p>
             <FormProvider {...searchRecipeFrom} >
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className={"flex mt-5"}>
-                        <div className={"w-full rounded-s-3xl border-2 border-green-600 border-e-0 "}>
-                            <IngredientSearchSelect customStyles={customStyles}/>
+                    <div className={"flex mt-5 w-full "}>
+                        <div className={"flex flex-col w-full "}>
+                            <div className={"flex gap-3 self-end mb-2"}>
+                                <SearchSortByInput/>
+                                <IgnoreTypicalPantryInput/>
+                            </div>
+                            <div className={"w-full rounded-s-3xl border-2 border-green-600 border-e-0 "}>
+                                <IngredientSearchSelect customStyles={customStyles}/>
+                            </div>
                         </div>
                         <button
-                            className={"bg-green-600 btn-lg  hover:text-gray-300 hover:bg-green-700 text-2xl text-white  btn-lg rounded-s-none rounded-e-3xl  "}
+                            className={"bg-green-600 btn-lg mt-auto hover:text-gray-300 hover:bg-green-700 text-2xl text-white   rounded-s-none rounded-e-3xl  "}
                             type="submit"><HiMiniMagnifyingGlass/></button>
                     </div>
                 </form>

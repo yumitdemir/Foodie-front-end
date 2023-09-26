@@ -1,12 +1,11 @@
 import React from 'react';
 import {useQuery} from "@tanstack/react-query";
 import {useParams} from "react-router-dom";
-import {BsBookmarkPlus} from "react-icons/bs";
 import RecipeHeader from "./components/RecipeHeader.jsx";
 import RecipeDescription from "./components/RecipeDescription.jsx";
 import RecipePreperation from "./components/RecipePreperation.jsx";
-import CommentSection from "./components/CommentSection.jsx";
 import api from "../../Api.js";
+import CommentSection from "./CommentSection.jsx";
 
 
 function Details(props) {
@@ -38,7 +37,7 @@ function Details(props) {
             <div className={"px-32 mt-16"}>
                 <RecipeDescription/>
                 <RecipePreperation/>
-                <CommentSection/>
+                {/*<CommentSection/>*/}
             </div>
         </div>
     );
