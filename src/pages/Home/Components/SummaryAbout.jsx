@@ -14,7 +14,7 @@ function SummaryAbout(props) {
                         nam necessitatibus nostrum, optio quaerat quia reprehenderit sapiente?
                     </p>
                     <img className={"shadow-2xl rounded w-full h-80 sm:hidden self-center mt-4"}
-                         src="https://picsum.photos/1000" alt=""/>
+                         src="https://media.istockphoto.com/id/1081422898/photo/pan-fried-duck.jpg?s=170667a&w=0&k=20&c=3bHFt_GugZ_ebGJ-jS8cxVg4WyzSejLFGIRVJS-T2TU=" alt=""/>
                     <button
                         className={"mt-10 p-2 bg-green-500 text-white rounded w-2/5 hidden sm:block self-end me-3 hover:bg-green-600"}>Explore
                         More
@@ -22,13 +22,13 @@ function SummaryAbout(props) {
                 </div>
                 <div className={""}>
                     <img className={"shadow-lg shadow-black hidden sm:block rounded md:w-4/5 lg:w-3/5"}
-                         src="https://picsum.photos/1000" alt=""/>
+                         src="https://media.istockphoto.com/id/1081422898/photo/pan-fried-duck.jpg?s=170667a&w=0&k=20&c=3bHFt_GugZ_ebGJ-jS8cxVg4WyzSejLFGIRVJS-T2TU=" alt=""/>
                 </div>
             </div>
             <div className={"grid grid-cols-2 sm:gap-3 md:border-e-4 border-green-400"}>
                 <div className={"flex justify-end items-center pe-3.5"}>
                     <img className={"shadow-lg shadow-black hidden sm:block rounded md:w-4/5 lg:w-3/5"}
-                         src="https://picsum.photos/1000"
+                         src="https://media.istockphoto.com/id/959584318/photo/making-dinner-into-a-masterpiece.jpg?s=612x612&w=0&k=20&c=5sadZdufW-4j_ZmV3XM8KSZXRFcYRD-Nmh0vqTkIS7Y="
                          alt=""/>
                 </div>
                 <div className={"col-span-2 sm:col-span-1 flex flex-col"}>
@@ -44,7 +44,7 @@ function SummaryAbout(props) {
                         <li className={"ps-3  border-green-500 border-s-4"}>Lorem ipsum dolor.</li>
                     </ul>
                     <img className={"shadow-lg shadow-black rounded w-full h-80 sm:hidden self-center mt-4"}
-                         src="https://picsum.photos/750" alt=""/>
+                         src="https://media.istockphoto.com/id/959584318/photo/making-dinner-into-a-masterpiece.jpg?s=612x612&w=0&k=20&c=5sadZdufW-4j_ZmV3XM8KSZXRFcYRD-Nmh0vqTkIS7Y=" alt=""/>
 
                 </div>
             </div>

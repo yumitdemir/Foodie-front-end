@@ -24,7 +24,7 @@ function RecipesList(props) {
 
     useEffect(() => {
         refetch();
-    }, []);
+    }, [searchParams]);
 
     if (isLoading) {
         return <div className={"w-full h-full flex justify-center items-center"}>
@@ -34,7 +34,7 @@ function RecipesList(props) {
 
     return (
         <div className={"flex flex-col gap-3 w-full "}>
-            {data?.map(recipe => (
+            {data.map(recipe => (
                 <RecipeItem key={nanoid()} recipe={recipe} />
             ))}
         </div>
