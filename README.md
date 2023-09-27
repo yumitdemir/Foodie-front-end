@@ -1,3 +1,6 @@
+# This project is still on development
+
+
 # Project Overview
 Welcome to Foodie, my project where I’m exploring the world of full-stack development. It’s a recipe search web app that uses ingredients as filters. The goal is to help users find the perfect recipe based on what they have in their pantry. Each recipe comes with detailed steps and additional information.
 
